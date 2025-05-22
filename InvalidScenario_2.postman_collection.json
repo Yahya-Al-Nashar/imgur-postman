@@ -1,0 +1,1097 @@
+{
+	"info": {
+		"_postman_id": "2434c386-66d5-455f-bfa1-2f108b9aca9c",
+		"name": "InvalidValidScenario_2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "44319199",
+		"_collection_link": "https://yahyaalnashar.postman.co/workspace/ITI_Proj~d01b90bd-1bbb-4104-8840-55cf4155e064/collection/44319199-2434c386-66d5-455f-bfa1-2f108b9aca9c?action=share&source=collection_link&creator=44319199"
+	},
+	"item": [
+		{
+			"name": "Limit",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"    // Test Cases//\r",
+							"\r",
+							"     // respone not empty\r",
+							"pm.test(\"Response body is not empty\", function () { pm.expect(pm.response.text()).to.not.be.empty; });\r",
+							" \r",
+							"    // status code is 200\r",
+							"pm.test(\"Status code is 200\", function () { pm.expect(pm.response.json().status).to.eql(200); });\r",
+							"\r",
+							"    // response data is not empty\r",
+							"pm.test(\"Response data is not empty\", function () { pm.expect(pm.response.json().data).to.not.be.empty; });\r",
+							"\r",
+							"    // response status to be success\r",
+							"pm.test(\"Response success to be true\", function () { pm.expect(pm.response.json().success).to.be.true; });"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{accessToken}}",
+						"type": "text"
+					},
+					{
+						"key": "X-RateLimit-UserLimit",
+						"value": "X-RateLimit-UserLimit",
+						"type": "text"
+					},
+					{
+						"key": "X-RateLimit-UserRemaining",
+						"value": "X-RateLimit-UserRemaining",
+						"type": "text"
+					},
+					{
+						"key": "X-RateLimit-UserReset",
+						"value": "X-RateLimit-UserReset",
+						"type": "text"
+					},
+					{
+						"key": "X-RateLimit-ClientLimit",
+						"value": "X-RateLimit-ClientLimit",
+						"type": "text"
+					},
+					{
+						"key": "X-RateLimit-ClientRemaining",
+						"value": "X-RateLimit-ClientRemaining",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{BaseURL}}{{LimitEndPoint}}",
+					"host": [
+						"{{BaseURL}}{{LimitEndPoint}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Upload Image 1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"    // Store Variable//\r",
+							"    \r",
+							"    // Save delete hash in variable\r",
+							"pm.environment.set(\"deleteHash\", pm.response.json().data.deletehash);\r",
+							"\r",
+							"    // Save image hash in variable\r",
+							"pm.environment.set(\"imageHash\", pm.response.json().data.id);\r",
+							"\r",
+							"\r",
+							"    // Test Cases//\r",
+							"    \r",
+							"    // respone not empty\r",
+							"pm.test(\"Response body is not empty\", function () { pm.expect(pm.response.text()).to.not.be.empty; });\r",
+							" \r",
+							"    // status code is 200\r",
+							"pm.test(\"Status code is 200\", function () { pm.expect(pm.response.json().status).to.eql(200); });\r",
+							"\r",
+							"    // response data is not empty\r",
+							"pm.test(\"Response data is not empty\", function () { pm.expect(pm.response.json().data).to.not.be.empty; });\r",
+							"\r",
+							"    // response status to be success\r",
+							"pm.test(\"Response success to be true\", function () { pm.expect(pm.response.json().success).to.be.true; });"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{accessToken}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/C:/Users/yahia/IdeaProjects/IMGUR_API_PROJECT/src/main/resources/fool.jpg"
+						},
+						{
+							"key": "type",
+							"value": "file",
+							"type": "text"
+						},
+						{
+							"key": "title",
+							"value": "Fool",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "This is Fool",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{BaseURL}}{{ImageEndPoint}}",
+					"host": [
+						"{{BaseURL}}{{ImageEndPoint}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Upload Image 2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"    // Store Variable//\r",
+							"\r",
+							"    // Save delete hash in variable\r",
+							"pm.environment.set(\"deleteHash2\", pm.response.json().data.deletehash);\r",
+							"\r",
+							"    // Save image hash in variable\r",
+							"pm.environment.set(\"imageHash2\", pm.response.json().data.id);\r",
+							"\r",
+							"\r",
+							"    // Test Cases//\r",
+							"    \r",
+							"    // respone not empty\r",
+							"pm.test(\"Response body is not empty\", function () { pm.expect(pm.response.text()).to.not.be.empty; });\r",
+							" \r",
+							"    // status code is 200\r",
+							"pm.test(\"Status code is 200\", function () { pm.expect(pm.response.json().status).to.eql(200); });\r",
+							"\r",
+							"    // response data is not empty\r",
+							"pm.test(\"Response data is not empty\", function () { pm.expect(pm.response.json().data).to.not.be.empty; });\r",
+							"\r",
+							"    // response status to be success\r",
+							"pm.test(\"Response success to be true\", function () { pm.expect(pm.response.json().success).to.be.true; });"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{accessToken}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/C:/Users/yahia/IdeaProjects/IMGUR_API_PROJECT/src/main/resources/tameya.jpg"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{BaseURL}}{{ImageEndPoint}}",
+					"host": [
+						"{{BaseURL}}{{ImageEndPoint}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Album",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"    // Store Variable//",
+							"",
+							"    // Save album delete hash in variable",
+							"pm.environment.set(\"albumDeleteHash\", pm.response.json().data.deletehash);",
+							"",
+							"    // Save album hash in variable",
+							"pm.environment.set(\"albumHash\", pm.response.json().data.id);",
+							"",
+							"",
+							"    // Test Cases//",
+							"    ",
+							"    // respone not empty",
+							"pm.test(\"Response body is not empty\", function () { pm.expect(pm.response.text()).to.not.be.empty; });",
+							" ",
+							"    // status code is 200",
+							"pm.test(\"Status code is 200\", function () { pm.expect(pm.response.json().status).to.eql(200); });",
+							"",
+							"    // response data is not empty",
+							"pm.test(\"Response data is not empty\", function () { pm.expect(pm.response.json().data).to.not.be.empty; });",
+							"",
+							"    // response status to be success",
+							"pm.test(\"Response success to be true\", function () { pm.expect(pm.response.json().success).to.be.true; });"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{accessToken}}",
+						"description": "Use this header if performing this action as a logged-in user."
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "ids[]",
+							"value": "{{imageHash}}",
+							"description": "The image ids that you want to be included in the album.",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "ids[]",
+							"value": "{{imageHash2}}",
+							"description": "any additional image ids...",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "deletehashes[]",
+							"value": "{{deleteHash}}",
+							"description": "The deletehashes of the images that you want to be included in the album.",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "deletehashes[]",
+							"value": "{{deleteHash2}}",
+							"description": "any additional deletehashes...",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "title",
+							"value": "My dank meme album",
+							"description": "The title of the album",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "description",
+							"value": "This albums contains a lot of dank memes. Be prepared.",
+							"description": "The description of the album",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "privacy",
+							"value": "public",
+							"description": "(deprecated) Sets the privacy level of the album. Values are : public | hidden | secret. Defaults to user's privacy settings for logged in users.",
+							"type": "text"
+						},
+						{
+							"key": "cover",
+							"value": "{{imageHash}}",
+							"description": "The ID of an image that you want to be the cover of the album",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{BaseURL}}{{AlbumEndPoint}}",
+					"host": [
+						"{{BaseURL}}{{AlbumEndPoint}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Album",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"    // Test Cases//\r",
+							"    \r",
+							"    // respone not empty\r",
+							"pm.test(\"Response body is not empty\", function () { pm.expect(pm.response.text()).to.not.be.empty; });\r",
+							" \r",
+							"    // status code is 200\r",
+							"pm.test(\"Status code is 200\", function () { pm.expect(pm.response.json().status).to.eql(200); });\r",
+							"\r",
+							"    // response data is not empty\r",
+							"pm.test(\"Response data is not empty\", function () { pm.expect(pm.response.json().data).to.be.true; });\r",
+							"\r",
+							"    // response status to be success\r",
+							"pm.test(\"Response success to be true\", function () { pm.expect(pm.response.json().success).to.be.true; });"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{accessToken}}",
+						"description": "Use this header if performing this action as a logged-in user."
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "ids[0]",
+							"value": "{{imageHash}}",
+							"description": "Optional. The image ids that you want to be included in the album.",
+							"type": "text"
+						},
+						{
+							"key": "ids[1]",
+							"value": "{{imageHash2}}",
+							"description": "any additional image ids...",
+							"type": "text"
+						},
+						{
+							"key": "deletehashes",
+							"value": "{{deleteHash}}",
+							"description": "Optional. The deletehashes of the images that you want to be included in the album.",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "title",
+							"value": "My dank meme album",
+							"description": "Optional. The title of the album",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "This album contains a lot of dank memes. Be prepared.",
+							"description": "Optional. The description of the album",
+							"type": "text"
+						},
+						{
+							"key": "privacy",
+							"value": "public",
+							"description": "(deprecated) Optional. Sets the privacy level of the album. Values are : `public` | `hidden` | `secret`. Defaults to user's privacy settings for logged in users.",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "cover",
+							"value": "{{imageHash}}",
+							"description": "Optional. The ID of an image that you want to be the cover of the album",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{BaseURL}}{{AlbumEndPoint}}{{albumHash}}",
+					"host": [
+						"{{BaseURL}}{{AlbumEndPoint}}{{albumHash}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Share Image 1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"    // Test Cases//\r",
+							"    \r",
+							"    // respone not empty\r",
+							"pm.test(\"Response body is not empty\", function () { pm.expect(pm.response.text()).to.not.be.empty; });\r",
+							" \r",
+							"    // status code is 200\r",
+							"pm.test(\"Status code is 200\", function () { pm.expect(pm.response.json().status).to.eql(200); });\r",
+							"\r",
+							"    // response data is not empty\r",
+							"pm.test(\"Response data is not empty\", function () { pm.expect(pm.response.json().data).to.be.true; });\r",
+							"\r",
+							"    // response status to be success\r",
+							"pm.test(\"Response success to be true\", function () { pm.expect(pm.response.json().success).to.be.true; });"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{accessToken}}"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "title",
+							"value": "Get this cat to the front page",
+							"description": "Required. The title of the image.",
+							"type": "text"
+						},
+						{
+							"key": "topic",
+							"value": "Funny",
+							"description": "Optional. Topic name",
+							"type": "text"
+						},
+						{
+							"key": "terms",
+							"value": "1",
+							"description": "Optional. If the user has not accepted our terms yet, this endpoint will return an error. To by-pass the terms in general simply set this value to `1`.",
+							"type": "text"
+						},
+						{
+							"key": "mature",
+							"value": "0",
+							"description": "Optional. If the post is [mature](http://imgur.com/rules), set this value to `1`.",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "tags",
+							"value": "funny,cat",
+							"description": "Optional. The name of the tags you wish to associate with a post. Can be passed as `tags[]=funny&tags[]=cat` or `tags=funny,cat`",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{BaseURL}}{{ShareEndPoint}}{{imageHash}}",
+					"host": [
+						"{{BaseURL}}{{ShareEndPoint}}{{imageHash}}"
+					]
+				},
+				"description": "Share an Album or Image to the Gallery."
+			},
+			"response": []
+		},
+		{
+			"name": "Share Image 2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"    // Test Cases//\r",
+							"    \r",
+							"    // respone not empty\r",
+							"pm.test(\"Response body is not empty\", function () { pm.expect(pm.response.text()).to.not.be.empty; });\r",
+							" \r",
+							"    // status code is 200\r",
+							"pm.test(\"Status code is 200\", function () { pm.expect(pm.response.json().status).to.eql(200); });\r",
+							"\r",
+							"    // response data is not empty\r",
+							"pm.test(\"Response data is not empty\", function () { pm.expect(pm.response.json().data).to.be.true; });\r",
+							"\r",
+							"    // response status to be success\r",
+							"pm.test(\"Response success to be true\", function () { pm.expect(pm.response.json().success).to.be.true; });"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{accessToken}}"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "title",
+							"value": "Get this cat to the front page",
+							"description": "Required. The title of the image.",
+							"type": "text"
+						},
+						{
+							"key": "topic",
+							"value": "Funny",
+							"description": "Optional. Topic name",
+							"type": "text"
+						},
+						{
+							"key": "terms",
+							"value": "1",
+							"description": "Optional. If the user has not accepted our terms yet, this endpoint will return an error. To by-pass the terms in general simply set this value to `1`.",
+							"type": "text"
+						},
+						{
+							"key": "mature",
+							"value": "0",
+							"description": "Optional. If the post is [mature](http://imgur.com/rules), set this value to `1`.",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "tags",
+							"value": "funny,cat",
+							"description": "Optional. The name of the tags you wish to associate with a post. Can be passed as `tags[]=funny&tags[]=cat` or `tags=funny,cat`",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{BaseURL}}{{ShareEndPoint}}{{imageHash2}}",
+					"host": [
+						"{{BaseURL}}{{ShareEndPoint}}{{imageHash2}}"
+					]
+				},
+				"description": "Share an Album or Image to the Gallery."
+			},
+			"response": []
+		},
+		{
+			"name": "Upload Comment",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"    // Store Variable//\r",
+							"\r",
+							"    // Save comment hash in variable\r",
+							"pm.environment.set(\"commentId\", pm.response.json().data.id);\r",
+							"\r",
+							"\r",
+							"    // Test Cases//\r",
+							"    \r",
+							"    // respone not empty\r",
+							"pm.test(\"Response body is not empty\", function () { pm.expect(pm.response.text()).to.not.be.empty; });\r",
+							" \r",
+							"    // status code is 200\r",
+							"pm.test(\"Status code is 200\", function () { pm.expect(pm.response.json().status).to.eql(200); });\r",
+							"\r",
+							"    // response data is not empty\r",
+							"pm.test(\"Response data is not empty\", function () { pm.expect(pm.response.json().data).to.not.be.empty; });\r",
+							"\r",
+							"    // response status to be success\r",
+							"pm.test(\"Response success to be true\", function () { pm.expect(pm.response.json().success).to.be.true; });"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{accessToken}}"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image_id",
+							"value": "{{imageHash}}",
+							"type": "text"
+						},
+						{
+							"key": "image_id",
+							"value": "{{albumHash}}",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "comment",
+							"value": "I'm a giraffe!",
+							"type": "text"
+						},
+						{
+							"key": "parent_id",
+							"value": "{{commentId}}",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{BaseURL}}{{CommentEndPoint}}",
+					"host": [
+						"{{BaseURL}}{{CommentEndPoint}}"
+					]
+				},
+				"description": "Creates a new comment, returns the ID of the comment.\n\n#### Response Model: [Basic](https://api.imgur.com/models/basic)\n\n#### Parameters\n\n| Key       | Required | Description                                                                    |\n|-----------|----------|--------------------------------------------------------------------------------|\n| image_id  | required | The ID of the image or album in the gallery that you wish to comment on                 |\n| comment   | required | The comment text, this is what will be displayed                               |\n| parent_id | optional | The ID of the parent comment, this is an alternative method to create a reply. |"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Comment",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"    // Test Cases//\r",
+							"    \r",
+							"    // respone not empty\r",
+							"pm.test(\"Response body is not empty\", function () { pm.expect(pm.response.text()).to.not.be.empty; });\r",
+							" \r",
+							"    // status code is 200\r",
+							"pm.test(\"Status code is 200\", function () { pm.expect(pm.response.json().status).to.eql(200); });\r",
+							"\r",
+							"    // response data is not empty\r",
+							"pm.test(\"Response data is not empty\", function () { pm.expect(pm.response.json().data).to.not.be.empty; });\r",
+							"\r",
+							"    // response status to be success\r",
+							"pm.test(\"Response success to be true\", function () { pm.expect(pm.response.json().success).to.be.true; });"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Client-ID {{clientId}}"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "{{BaseURL}}{{CommentEndPoint}}{{commentId}}",
+					"host": [
+						"{{BaseURL}}{{CommentEndPoint}}{{commentId}}"
+					]
+				},
+				"description": "Get information about a specific comment.\n\n#### Response Model: [Comment](https://api.imgur.com/models/comment)"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Comment",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"    // Test Cases//\r",
+							"    \r",
+							"    // respone not empty\r",
+							"pm.test(\"Response body is not empty\", function () { pm.expect(pm.response.text()).to.not.be.empty; });\r",
+							" \r",
+							"    // status code is 200\r",
+							"pm.test(\"Status code is 200\", function () { pm.expect(pm.response.json().status).to.eql(200); });\r",
+							"\r",
+							"    // response data is not empty\r",
+							"pm.test(\"Response data is not empty\", function () { pm.expect(pm.response.json().data).to.be.true; });\r",
+							"\r",
+							"    // response status to be success\r",
+							"pm.test(\"Response success to be true\", function () { pm.expect(pm.response.json().success).to.be.true; });"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{accessToken}}"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "{{BaseURL}}{{CommentEndPoint}}{{commentId}}",
+					"host": [
+						"{{BaseURL}}{{CommentEndPoint}}{{commentId}}"
+					]
+				},
+				"description": "Delete a comment by the given id.\n\n#### Response Model: [Basic](https://api.imgur.com/models/basic)"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Album",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"    // Test Cases//\r",
+							"    \r",
+							"    // respone not empty\r",
+							"pm.test(\"Response body is not empty\", function () { pm.expect(pm.response.text()).to.not.be.empty; });\r",
+							" \r",
+							"    // status code is 200\r",
+							"pm.test(\"Status code is 200\", function () { pm.expect(pm.response.json().status).to.eql(200); });\r",
+							"\r",
+							"    // response data is not empty\r",
+							"pm.test(\"Response data is not empty\", function () { pm.expect(pm.response.json().data).to.be.true; });\r",
+							"\r",
+							"    // response status to be success\r",
+							"pm.test(\"Response success to be true\", function () { pm.expect(pm.response.json().success).to.be.true; });"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{accessToken}}"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "{{BaseURL}}{{AlbumEndPoint}}{{albumHash}}",
+					"host": [
+						"{{BaseURL}}{{AlbumEndPoint}}{{albumHash}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Image 2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"    // Test Cases//\r",
+							"    \r",
+							"    // respone not empty\r",
+							"pm.test(\"Response body is not empty\", function () { pm.expect(pm.response.text()).to.not.be.empty; });\r",
+							" \r",
+							"    // status code is 200\r",
+							"pm.test(\"Status code is 200\", function () { pm.expect(pm.response.json().status).to.eql(200); });\r",
+							"\r",
+							"    // response data is not empty\r",
+							"pm.test(\"Response data is not empty\", function () { pm.expect(pm.response.json().data).to.be.true; });\r",
+							"\r",
+							"    // response status to be success\r",
+							"pm.test(\"Response success to be true\", function () { pm.expect(pm.response.json().success).to.be.true; });"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{accessToken}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{BaseURL}}{{ImageEndPoint}}{{deleteHash2}}",
+					"host": [
+						"{{BaseURL}}{{ImageEndPoint}}{{deleteHash2}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Image 1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"    // Test Cases//\r",
+							"    \r",
+							"    // respone not empty\r",
+							"pm.test(\"Response body is not empty\", function () { pm.expect(pm.response.text()).to.not.be.empty; });\r",
+							" \r",
+							"    // status code is 200\r",
+							"pm.test(\"Status code is 200\", function () { pm.expect(pm.response.json().status).to.eql(200); });\r",
+							"\r",
+							"    // response data is not empty\r",
+							"pm.test(\"Response data is not empty\", function () { pm.expect(pm.response.json().data).to.be.true; });\r",
+							"\r",
+							"    // response status to be success\r",
+							"pm.test(\"Response success to be true\", function () { pm.expect(pm.response.json().success).to.be.true; });"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{accessToken}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{BaseURL}}{{ImageEndPoint}}{{deleteHash}}",
+					"host": [
+						"{{BaseURL}}{{ImageEndPoint}}{{deleteHash}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Image 1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"    // Test Cases//\r",
+							"    \r",
+							"    // respone not empty\r",
+							"pm.test(\"Response body is not empty\", function () { pm.expect(pm.response.text()).to.not.be.empty; });\r",
+							" \r",
+							"    // status code is 200\r",
+							"pm.test(\"Status code is 200\", function () { pm.expect(pm.response.json().status).to.eql(404); });\r",
+							"\r",
+							"    // response data is not empty\r",
+							"pm.test(\"Response data is not empty\", function () { pm.expect(pm.response.json().data).to.not.be.empty; });\r",
+							"\r",
+							"    // response status to be success\r",
+							"pm.test(\"Response success to be true\", function () { pm.expect(pm.response.json().success).to.be.false; });"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{accessToken}}"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "{{BaseURL}}{{ImageEndPoint}}{{imageHash}}",
+					"host": [
+						"{{BaseURL}}{{ImageEndPoint}}{{imageHash}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Image 2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"    // Test Cases//\r",
+							"    \r",
+							"    // respone not empty\r",
+							"pm.test(\"Response body is not empty\", function () { pm.expect(pm.response.text()).to.not.be.empty; });\r",
+							" \r",
+							"    // status code is 200\r",
+							"pm.test(\"Status code is 200\", function () { pm.expect(pm.response.json().status).to.eql(404); });\r",
+							"\r",
+							"    // response data is not empty\r",
+							"pm.test(\"Response data is not empty\", function () { pm.expect(pm.response.json().data).to.not.be.empty; });\r",
+							"\r",
+							"    // response status to be success\r",
+							"pm.test(\"Response success to be true\", function () { pm.expect(pm.response.json().success).to.be.false; });"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{accessToken}}"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "{{BaseURL}}{{ImageEndPoint}}{{imageHash2}}",
+					"host": [
+						"{{BaseURL}}{{ImageEndPoint}}{{imageHash2}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Album",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"    // Test Cases//\r",
+							"    \r",
+							"    // respone not empty\r",
+							"pm.test(\"Response body is not empty\", function () { pm.expect(pm.response.text()).to.not.be.empty; });\r",
+							" \r",
+							"    // status code is 200\r",
+							"pm.test(\"Status code is 200\", function () { pm.expect(pm.response.json().status).to.eql(404); });\r",
+							"\r",
+							"    // response data is not empty\r",
+							"pm.test(\"Response data is not empty\", function () { pm.expect(pm.response.json().data).to.not.be.empty; });\r",
+							"\r",
+							"    // response status to be success\r",
+							"pm.test(\"Response success to be true\", function () { pm.expect(pm.response.json().success).to.be.false; });"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Client-ID {{clientId}}"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "{{BaseURL}}{{AlbumEndPoint}}{{albumHash}}",
+					"host": [
+						"{{BaseURL}}{{AlbumEndPoint}}{{albumHash}}"
+					]
+				},
+				"description": "Get additional information about an album.\n\n#### Response Model: [Album](https://api.imgur.com/models/album)"
+			},
+			"response": []
+		}
+	]
+}
