@@ -37,11 +37,13 @@ Link: [Imgur API Docs](https://apidocs.imgur.com)
 
 ## 📂 Project Structure
 
+```
 imgur-postman/
-├── ValidScenario.postman_collection.json # Happy-path E2E flow
-├── InvalidScenario_1.postman_collection.json # Negative test set 1
-├── InvalidScenario_2.postman_collection.json # Negative test set 2
-└── imgurEnv.postman_environment.json # Environment variables
+├── ValidScenario.postman_collection.json       # Happy-path E2E flow
+├── InvalidScenario_1.postman_collection.json   # Negative test set 1
+├── InvalidScenario_2.postman_collection.json   # Negative test set 2
+└── imgurEnv.postman_environment.json           # Environment variables
+```
 
 ---
 
